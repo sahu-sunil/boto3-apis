@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 
 
 class DynamoDB:
-    def __init__(self, rcc_account_session: AWSBaseSession, region: str, table: str):
-        self.resource = rcc_account_session.dynamo_db_resource(region)
+    def __init__(self, session: AWSBaseSession, region: str, table: str):
+        self.resource = session.dynamo_db_resource(region)
         self.table = table
         self.client = self.resource.meta.client
         self.table_obj = self.resource.Table(table)
